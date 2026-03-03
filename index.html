@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="ExSkill: A dual-stream framework enabling multimodal agents to continuously learn from task-level Skills and action-level Experiences through visually-grounded knowledge accumulation.">
-  <meta name="keywords" content="ExSkill, Multimodal Agents, Continual Learning, Experience, Skills, LLM, Tool Use">
+        content="XSkill: A dual-stream framework enabling multimodal agents to continuously learn from task-level Skills and action-level Experiences through visually-grounded knowledge accumulation.">
+  <meta name="keywords" content="XSkill, Multimodal Agents, Continual Learning, Experience, Skills, LLM, Tool Use">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ExSkill: Continual Learning from Experience and Skills in Multimodal Agents</title>
+  <title>XSkill: Continual Learning from Experience and Skills in Multimodal Agents</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
         rel="stylesheet">
@@ -59,16 +59,21 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
-            <span class="exskill">ExSkill</span>: Continual Learning from Experience and Skills in Multimodal Agents
+            <span class="xskill">XSkill</span>: Continual Learning from Experience and Skills in Multimodal Agents
           </h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><a href="#">Author One</a><sup>1</sup>,</span>
-            <span class="author-block"><a href="#">Author Two</a><sup>2</sup>,</span>
-            <span class="author-block"><a href="#">Author Three</a><sup>1</sup></span>
+            <span class="author-block">Guanyu Jiang<sup>*1,2</sup>,</span>
+            <span class="author-block">Zhaochen Su<sup>*1</sup>,</span>
+            <span class="author-block">Xiaoye Qu<sup>3</sup>,</span>
+            <span class="author-block">Yi R. (May) Fung<sup>1</sup></span>
           </div>
-          <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Institution One,</span>
-            <span class="author-block"><sup>2</sup>Institution Two</span>
+          <div class="is-size-6 publication-authors" style="margin-top: 0.3rem; color: #555;">
+            <span class="author-block"><sup>1</sup>Hong Kong University of Science and Technology,</span>
+            <span class="author-block"><sup>2</sup>Zhejiang University,</span>
+            <span class="author-block"><sup>3</sup>Huazhong University of Science and Technology</span>
+          </div>
+          <div class="is-size-7" style="margin-top: 0.25rem; color: #888;">
+            <sup>*</sup>Equal contribution
           </div>
 
           <div class="column has-text-centered">
@@ -81,7 +86,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="#"
+                <a href="https://github.com/XSkill-Agent/XSkill"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fab fa-github"></i></span>
                   <span>Code</span>
@@ -102,13 +107,13 @@
     <div class="hero-body">
       <div class="teaser-figure-wrap">
         <div class="analysis-figure-wrap" style="border-radius: 12px;">
-          <img src="./static/images/figures/comparison.png" alt="Comparison of reasoning trajectories with and without ExSkill" />
+          <img src="./static/images/figures/comparison.png" alt="Comparison of reasoning trajectories with and without XSkill" />
         </div>
       </div>
       <h2 class="subtitle has-text-centered" style="margin-top: 1.5rem;">
-        Comparison of reasoning trajectories on a multimodal task <strong>with and without <span class="exskill">ExSkill</span></strong>.
+        Comparison of reasoning trajectories on a multimodal task <strong>with and without <span class="xskill">XSkill</span></strong>.
         The baseline agent (left) fails due to visual-semantic gaps,
-        while <span class="exskill">ExSkill</span> (right) recalls relevant experiences and structured skill fragments,
+        while <span class="xskill">XSkill</span> (right) recalls relevant experiences and structured skill fragments,
         generating a grounded execution plan that leads to successful identification.
       </h2>
     </div>
@@ -149,7 +154,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Multimodal agents demonstrate impressive problem-solving capabilities but typically operate in isolated episodes without leveraging past experiences. Recent methods address this through dynamic retrieval of textual insights or predefined skill documents, yet face critical challenges: visual modalities are neglected during knowledge extraction, stored insights lack executable structure, and manually crafted skills fail to scale. We propose <span class="exskill">ExSkill</span>, a framework combining task-level Skills (structured workflows and tool templates) with action-level Experiences (context-specific tactical insights) through automated accumulation from agent trajectories. Our approach employs visually-grounded summarization to extract knowledge integrating visual observations and textual reasoning, hierarchical consolidation to maintain quality and diversity, and context-aware adaptation to tailor knowledge to current visual contexts. Evaluated on diverse benchmarks requiring visual tool use and multimodal search, <span class="exskill">ExSkill</span> achieves average gains of 4.1 to 6.5 points over strong baselines across different backbone models, with superior zero-shot transferability and strategic improvements in tool selection and execution accuracy. These results demonstrate that our framework enables transferable continual learning for multimodal agents in real-world scenarios without parametric training, offering broad application for practical deployment.
+            Multimodal agents demonstrate impressive problem-solving capabilities but typically operate in isolated episodes without leveraging past experiences. Recent methods address this through dynamic retrieval of textual insights or predefined skill documents, yet face critical challenges: visual modalities are neglected during knowledge extraction, stored insights lack executable structure, and manually crafted skills fail to scale. We propose <span class="xskill">XSkill</span>, a framework combining task-level Skills (structured workflows and tool templates) with action-level Experiences (context-specific tactical insights) through automated accumulation from agent trajectories. Our approach employs visually-grounded summarization to extract knowledge integrating visual observations and textual reasoning, hierarchical consolidation to maintain quality and diversity, and context-aware adaptation to tailor knowledge to current visual contexts. Evaluated on diverse benchmarks requiring visual tool use and multimodal search, <span class="xskill">XSkill</span> achieves average gains of 4.1 to 6.5 points over strong baselines across different backbone models, with superior zero-shot transferability and strategic improvements in tool selection and execution accuracy. These results demonstrate that our framework enables transferable continual learning for multimodal agents in real-world scenarios without parametric training, offering broad application for practical deployment.
           </p>
         </div>
       </div>
@@ -166,7 +171,7 @@
         <h2 class="title is-3">Framework Overview</h2>
         <div class="content has-text-justified">
           <p>
-            <span class="exskill">ExSkill</span> operates in two phases. <strong>Phase I (Accumulation)</strong>: the agent distills structured skill documents and experience items from multi-path trajectories via rollout summary, cross-rollout critique, and hierarchical consolidation. <strong>Phase II (Inference)</strong>: the system decomposes the test task, retrieves relevant knowledge, adapts it to the current visual context, and injects it into the agent's prompt.
+            <span class="xskill">XSkill</span> operates in two phases. <strong>Phase I (Accumulation)</strong>: the agent distills structured skill documents and experience items from multi-path trajectories via rollout summary, cross-rollout critique, and hierarchical consolidation. <strong>Phase II (Inference)</strong>: the system decomposes the test task, retrieves relevant knowledge, adapts it to the current visual context, and injects it into the agent's prompt.
           </p>
         </div>
       </div>
@@ -176,10 +181,10 @@
     <div class="columns is-centered">
       <div class="column">
         <div class="analysis-figure-wrap">
-          <img src="./static/images/figures/framework.png" alt="ExSkill framework overview" style="width: 100%;" />
+          <img src="./static/images/figures/framework.png" alt="XSkill framework overview" style="width: 100%;" />
         </div>
         <p class="figure-caption has-text-centered">
-          Overview of the <span class="exskill">ExSkill</span> framework.
+          Overview of the <span class="xskill">XSkill</span> framework.
           <strong>Phase I</strong> (left): Knowledge accumulation via rollout summary (A), cross-rollout critique (B), and hierarchical consolidation into the Skill Library and Experience Bank.
           <strong>Phase II</strong> (right): Task decomposition and retrieval (C), context-aware adaptation (D), and injection into the agent's system prompt.
         </p>
@@ -288,7 +293,7 @@
     <h2 class="title is-3 has-text-centered">Main Results</h2>
     <div class="content has-text-justified">
       <p>
-        We evaluate <span class="exskill">ExSkill</span> on five benchmarks across three domains:
+        We evaluate <span class="xskill">XSkill</span> on five benchmarks across three domains:
         <strong>Visual Agentic Tool Use</strong> (VisualToolBench, TIR-Bench),
         <strong>Multimodal Search</strong> (MMSearch-Plus, MMBrowseComp), and
         <strong>Comprehensive</strong> (RealX-Bench).
@@ -362,7 +367,7 @@
             <td>31.15</td><td>47.25</td>
           </tr>
           <tr class="our-method-row">
-            <td><strong>ExSkill (Ours)</strong></td>
+            <td><strong>XSkill (Ours)</strong></td>
             <td><strong>30.49</strong></td><td><strong>46.73</strong></td>
             <td><strong>33.12</strong></td><td><strong>58.00</strong></td>
             <td><strong>27.96</strong></td><td><strong>44.08</strong></td>
@@ -412,7 +417,7 @@
             <td>43.71</td><td>62.16</td>
           </tr>
           <tr class="our-method-row">
-            <td><strong>ExSkill (Ours)</strong></td>
+            <td><strong>XSkill (Ours)</strong></td>
             <td><strong>46.50</strong></td><td><strong>64.02</strong></td>
             <td><strong>47.75</strong></td><td><strong>75.00</strong></td>
             <td><strong>43.72</strong></td><td><strong>56.40</strong></td>
@@ -462,7 +467,7 @@
             <td>23.00</td><td>38.71</td>
           </tr>
           <tr class="our-method-row">
-            <td><strong>ExSkill (Ours)</strong></td>
+            <td><strong>XSkill (Ours)</strong></td>
             <td>24.53</td><td>37.85</td>
             <td><strong>28.25</strong></td><td><strong>56.00</strong></td>
             <td><strong>16.11</strong></td><td><strong>23.22</strong></td>
@@ -512,7 +517,7 @@
             <td>22.99</td><td>38.89</td>
           </tr>
           <tr class="our-method-row">
-            <td><strong>ExSkill (Ours)</strong></td>
+            <td><strong>XSkill (Ours)</strong></td>
             <td><strong>25.00</strong></td><td><strong>41.12</strong></td>
             <td><strong>30.25</strong></td><td><strong>57.50</strong></td>
             <td><strong>17.30</strong></td><td><strong>23.70</strong></td>
@@ -654,7 +659,7 @@
           <p class="analysis-card-desc">
             Knowledge accumulated on one benchmark generalizes to unseen benchmarks.
             Using VisualToolBench knowledge for TIR-Bench tasks, and MMSearch-Plus knowledge for MMBrowseComp,
-            <span class="exskill">ExSkill</span> consistently outperforms all baselines with average improvements of 2–3 points over Agent-KB.
+            <span class="xskill">XSkill</span> consistently outperforms all baselines with average improvements of 2–3 points over Agent-KB.
           </p>
           <div class="analysis-figure-wrap">
             <img src="./static/images/figures/ood_all_avg.png" alt="Out-of-distribution transfer comparison" />
@@ -674,10 +679,10 @@
     <div class="content has-text-justified" style="margin-bottom: 2rem;">
       <p>
         We walk through a real reasoning trajectory on <strong>RealX-Bench</strong> to illustrate how
-        <span class="exskill">ExSkill</span> works end-to-end.
+        <span class="xskill">XSkill</span> works end-to-end.
         The agent is given a car image and asked: <em>"In what color area is the second 'GOOD' text on the car body located?"</em>
         The correct answer is <strong>Purple</strong>.
-        <span class="exskill">ExSkill</span> injects an accumulated skill document before execution,
+        <span class="xskill">XSkill</span> injects an accumulated skill document before execution,
         guiding the agent to use forensic pixel sampling rather than a subjective visual guess.
       </p>
     </div>
@@ -847,9 +852,9 @@ h_hsv, s_hsv, v_hsv = colorsys.rgb_to_hsv(r/255, g/255, b/255)
 <section class="section" id="bibtex">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@inproceedings{exskill2026,
-  title     = {{ExSkill}: Continual Learning from Experience and Skills in Multimodal Agents},
-  author    = {Author One and Author Two and Author Three},
+    <pre><code>@inproceedings{xskill2026,
+  title     = {{XSkill}: Continual Learning from Experience and Skills in Multimodal Agents},
+  author    = {Guanyu Jiang and Zhaochen Su and Xiaoye Qu and Yi R. Fung},
   booktitle = {Conference Name},
   year      = {2026},
 }</code></pre>

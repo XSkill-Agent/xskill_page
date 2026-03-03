@@ -156,10 +156,10 @@ body {
   border-radius: 5px;
 }
 
-/* ========== ExSkill Paper Homepage Styles ========== */
+/* ========== XSkill Paper Homepage Styles ========== */
 
 /* Brand name small-caps — orange→green gradient */
-.exskill {
+.xskill {
   font-variant: small-caps;
   font-weight: bold;
   background: linear-gradient(90deg, #F97316 0%, #22C55E 100%);

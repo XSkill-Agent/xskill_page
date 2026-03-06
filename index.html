@@ -154,7 +154,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Multimodal agents demonstrate impressive problem-solving capabilities but typically operate in isolated episodes without leveraging past experiences. Recent methods address this through dynamic retrieval of textual insights or predefined skill documents, yet face critical challenges: visual modalities are neglected during knowledge extraction, stored insights lack executable structure, and manually crafted skills fail to scale. We propose <span class="xskill">XSkill</span>, a framework combining task-level Skills (structured workflows and tool templates) with action-level Experiences (context-specific tactical insights) through automated accumulation from agent trajectories. Our approach employs visually-grounded summarization to extract knowledge integrating visual observations and textual reasoning, hierarchical consolidation to maintain quality and diversity, and context-aware adaptation to tailor knowledge to current visual contexts. Evaluated on diverse benchmarks requiring visual tool use and multimodal search, <span class="xskill">XSkill</span> achieves average gains of 4.1 to 6.5 points over strong baselines across different backbone models, with superior zero-shot transferability and strategic improvements in tool selection and execution accuracy. These results demonstrate that our framework enables transferable continual learning for multimodal agents in real-world scenarios without parametric training, offering broad application for practical deployment.
+            Multimodal agents demonstrate impressive problem-solving capabilities but typically operate in isolated episodes without leveraging past experiences. Recent methods address this through dynamic retrieval of textual insights or predefined skill documents, yet face critical challenges: visual modalities are neglected during knowledge extraction, stored insights lack executable structure, and manually crafted skills fail to scale. We propose <span class="xskill">XSkill</span>, a framework combining task-level Skills (structured workflows and tool templates) with action-level Experiences (context-specific tactical insights) through automated accumulation from agent trajectories. Our approach employs visually-grounded summarization to extract knowledge integrating visual observations and textual reasoning, hierarchical consolidation to maintain quality and diversity, and context-aware adaptation to tailor knowledge to current visual contexts. Evaluated on diverse benchmarks requiring visual tool use and multimodal search, <span class="xskill">XSkill</span> achieves average gains of 2.58 to 6.71 points over strong baselines across different backbone models, with superior zero-shot transferability and strategic improvements in tool selection and execution accuracy. These results demonstrate that our framework enables transferable continual learning for multimodal agents in real-world scenarios without parametric training, offering broad application for practical deployment.
           </p>
         </div>
       </div>
@@ -171,7 +171,7 @@
         <h2 class="title is-3">Framework Overview</h2>
         <div class="content has-text-justified">
           <p>
-            <span class="xskill">XSkill</span> operates in two phases. <strong>Phase I (Accumulation)</strong>: the agent distills structured skill documents and experience items from multi-path trajectories via rollout summary, cross-rollout critique, and hierarchical consolidation. <strong>Phase II (Inference)</strong>: the system decomposes the test task, retrieves relevant knowledge, adapts it to the current visual context, and injects it into the agent's prompt.
+            <span class="xskill">XSkill</span> operates in two phases. <strong>Phase I (Accumulation)</strong>: the agent distills structured skill documents and experience items from multi-path trajectories via rollout summary, cross-rollout critique, and hierarchical consolidation to address the bottlenecks of inefficient tool use and inflexible orchestration. <strong>Phase II (Inference)</strong>: the system decomposes the test task, retrieves relevant knowledge, adapts it to the current visual context, and injects it into the prompt of the agent.
           </p>
         </div>
       </div>
@@ -183,11 +183,11 @@
         <div class="analysis-figure-wrap">
           <img src="./static/images/figures/framework.png" alt="XSkill framework overview" style="width: 100%;" />
         </div>
-        <p class="figure-caption has-text-centered">
-          Overview of the <span class="xskill">XSkill</span> framework.
-          <strong>Phase I</strong> (left): Knowledge accumulation via rollout summary (A), cross-rollout critique (B), and hierarchical consolidation into the Skill Library and Experience Bank.
-          <strong>Phase II</strong> (right): Task decomposition and retrieval (C), context-aware adaptation (D), and injection into the agent's system prompt.
-        </p>
+          <p class="figure-caption has-text-centered">
+            Overview of the <span class="xskill">XSkill</span> framework.
+            <strong>Phase I</strong> (left): Knowledge accumulation via rollout summary (A), cross-rollout critique (B), and hierarchical consolidation into the Skill Library and Experience Bank.
+            <strong>Phase II</strong> (right): Task decomposition and retrieval (C), context-aware adaptation (D), and injection into the prompt of the agent.
+          </p>
       </div>
     </div>
 
@@ -296,7 +296,7 @@
         We evaluate <span class="xskill">XSkill</span> on five benchmarks across three domains:
         <strong>Visual Agentic Tool Use</strong> (VisualToolBench, TIR-Bench),
         <strong>Multimodal Search</strong> (MMSearch-Plus, MMBrowseComp), and
-        <strong>Comprehensive</strong> (RealX-Bench).
+        <strong>Comprehensive</strong> (AgentVista).
         We compare against three state-of-the-art learning-from-experience baselines:
         Agent Workflow Memory (AWM), Dynamic CheatSheet (DC), and Agent-KB.
       </p>
@@ -312,7 +312,7 @@
             <th colspan="2" class="has-text-centered">VisualToolBench</th>
             <th colspan="2" class="has-text-centered">TIR-Bench</th>
             <th colspan="2" class="has-text-centered">MMSearch-Plus</th>
-            <th colspan="2" class="has-text-centered">RealX-Bench</th>
+            <th colspan="2" class="has-text-centered">AgentVista</th>
             <th colspan="2" class="has-text-centered">Average</th>
           </tr>
           <tr>
@@ -331,48 +331,48 @@
             <td>20.91</td><td>28.97</td>
             <td>21.37</td><td>40.00</td>
             <td>10.43</td><td>19.43</td>
-            <td>35.90</td><td>43.62</td>
-            <td>22.15</td><td>33.01</td>
+            <td>17.89</td><td>28.44</td>
+            <td>17.65</td><td>29.21</td>
           </tr>
           <tr>
             <td>w/ Tools</td>
             <td>25.35</td><td>40.65</td>
             <td>28.38</td><td>54.00</td>
             <td>21.56</td><td>35.55</td>
-            <td>44.41</td><td>56.38</td>
-            <td>29.93</td><td>46.65</td>
+            <td>20.18</td><td>33.94</td>
+            <td>23.87</td><td>41.04</td>
           </tr>
           <tr>
             <td>AWM</td>
             <td>25.93</td><td>39.25</td>
             <td>29.75</td><td>53.50</td>
             <td>20.85</td><td>36.97</td>
-            <td>43.09</td><td>52.13</td>
-            <td>29.91</td><td>45.46</td>
+            <td>19.72</td><td>32.11</td>
+            <td>24.06</td><td>40.46</td>
           </tr>
           <tr>
             <td>Dynamic CheatSheet</td>
             <td>24.77</td><td>37.38</td>
             <td>27.62</td><td>51.00</td>
             <td>24.64</td><td>40.76</td>
-            <td>42.29</td><td>54.26</td>
-            <td>29.83</td><td>45.85</td>
+            <td>21.79</td><td>35.78</td>
+            <td>24.71</td><td>41.23</td>
           </tr>
           <tr>
             <td>Agent-KB</td>
             <td>26.75</td><td>41.12</td>
             <td>29.13</td><td>52.50</td>
             <td>23.22</td><td>37.91</td>
-            <td>45.48</td><td>57.45</td>
-            <td>31.15</td><td>47.25</td>
+            <td>20.87</td><td>33.94</td>
+            <td>24.99</td><td>41.37</td>
           </tr>
           <tr class="our-method-row">
             <td><strong>XSkill (Ours)</strong></td>
             <td><strong>30.49</strong></td><td><strong>46.73</strong></td>
             <td><strong>33.12</strong></td><td><strong>58.00</strong></td>
             <td><strong>27.96</strong></td><td><strong>44.08</strong></td>
-            <td>44.68</td><td><strong>58.51</strong></td>
-            <td><strong>34.06</strong></td><td><strong>51.83</strong></td>
+            <td><strong>22.94</strong></td><td><strong>36.70</strong></td>
+            <td><strong>28.63</strong></td><td><strong>46.38</strong></td>
           </tr>
           <!-- Gemini-3-Flash -->
           <tr class="model-header-row">
@@ -381,48 +381,48 @@
             <td>25.12</td><td>36.92</td>
             <td>28.50</td><td>54.00</td>
             <td>16.47</td><td>24.64</td>
-            <td>48.40</td><td>58.51</td>
-            <td>29.62</td><td>43.52</td>
+            <td>18.35</td><td>29.36</td>
+            <td>22.11</td><td>36.23</td>
           </tr>
           <tr>
             <td>w/ Tools</td>
             <td>41.94</td><td>60.75</td>
             <td>32.37</td><td>58.50</td>
             <td>39.57</td><td>53.55</td>
-            <td>56.91</td><td>71.28</td>
-            <td>42.70</td><td>61.02</td>
+            <td>20.64</td><td>39.45</td>
+            <td>33.63</td><td>53.06</td>
           </tr>
           <tr>
             <td>AWM</td>
             <td>41.94</td><td>59.35</td>
             <td>34.25</td><td>62.50</td>
             <td>43.36</td><td>54.98</td>
-            <td>54.79</td><td>70.21</td>
-            <td>43.59</td><td>61.76</td>
+            <td>19.50</td><td>37.61</td>
+            <td>34.76</td><td>53.61</td>
           </tr>
           <tr>
             <td>Dynamic CheatSheet</td>
             <td>41.70</td><td>59.81</td>
             <td>33.75</td><td>59.00</td>
             <td>40.28</td><td>55.45</td>
-            <td>55.59</td><td>71.28</td>
-            <td>42.83</td><td>61.39</td>
+            <td>20.18</td><td>36.70</td>
+            <td>33.98</td><td>52.74</td>
           </tr>
           <tr>
             <td>Agent-KB</td>
             <td>41.75</td><td>61.21</td>
             <td>36.62</td><td>62.00</td>
             <td>39.81</td><td>53.08</td>
-            <td>56.65</td><td>72.34</td>
-            <td>43.71</td><td>62.16</td>
+            <td>21.33</td><td>38.53</td>
+            <td>34.88</td><td>53.71</td>
           </tr>
           <tr class="our-method-row">
             <td><strong>XSkill (Ours)</strong></td>
             <td><strong>46.50</strong></td><td><strong>64.02</strong></td>
             <td><strong>47.75</strong></td><td><strong>75.00</strong></td>
             <td><strong>43.72</strong></td><td><strong>56.40</strong></td>
-            <td><strong>58.78</strong></td><td><strong>73.40</strong></td>
-            <td><strong>49.19</strong></td><td><strong>67.21</strong></td>
+            <td><strong>23.39</strong></td><td><strong>40.37</strong></td>
+            <td><strong>40.34</strong></td><td><strong>58.95</strong></td>
           </tr>
           <!-- GPT-5-mini -->
           <tr class="model-header-row">
@@ -431,48 +431,48 @@
             <td>13.90</td><td>22.90</td>
             <td>20.00</td><td>46.50</td>
             <td>3.08</td><td>6.64</td>
-            <td>21.01</td><td>27.66</td>
-            <td>14.50</td><td>25.93</td>
+            <td>18.58</td><td>28.44</td>
+            <td>13.89</td><td>26.12</td>
           </tr>
           <tr>
             <td>w/ Tools</td>
             <td>24.30</td><td>37.85</td>
             <td>23.50</td><td>50.50</td>
             <td>14.22</td><td>20.38</td>
-            <td>28.99</td><td>44.68</td>
-            <td>22.75</td><td>38.35</td>
+            <td>20.41</td><td>35.78</td>
+            <td>20.61</td><td>36.13</td>
           </tr>
           <tr>
             <td>AWM</td>
             <td>23.25</td><td>34.58</td>
             <td>24.25</td><td>53.00</td>
             <td>14.81</td><td>20.85</td>
-            <td>27.66</td><td>42.55</td>
-            <td>22.49</td><td>37.75</td>
+            <td>19.04</td><td>34.86</td>
+            <td>20.34</td><td>35.82</td>
           </tr>
           <tr>
             <td>Dynamic CheatSheet</td>
             <td>23.83</td><td>35.05</td>
             <td>24.50</td><td>53.50</td>
             <td>13.74</td><td>18.48</td>
-            <td>29.52</td><td>43.62</td>
-            <td>22.90</td><td>37.66</td>
+            <td>21.10</td><td>36.70</td>
+            <td>20.79</td><td>35.93</td>
           </tr>
           <tr>
             <td>Agent-KB</td>
             <td>24.77</td><td>38.32</td>
             <td>25.13</td><td>53.00</td>
             <td>13.63</td><td>19.91</td>
-            <td>28.45</td><td>43.62</td>
-            <td>23.00</td><td>38.71</td>
+            <td>19.95</td><td>34.86</td>
+            <td>20.87</td><td>36.52</td>
           </tr>
           <tr class="our-method-row">
             <td><strong>XSkill (Ours)</strong></td>
             <td>24.53</td><td>37.85</td>
             <td><strong>28.25</strong></td><td><strong>56.00</strong></td>
             <td><strong>16.11</strong></td><td><strong>23.22</strong></td>
-            <td><strong>33.78</strong></td><td><strong>50.00</strong></td>
-            <td><strong>25.67</strong></td><td><strong>41.77</strong></td>
+            <td><strong>23.85</strong></td><td><strong>38.53</strong></td>
+            <td><strong>23.19</strong></td><td><strong>38.90</strong></td>
           </tr>
           <!-- o4-mini -->
           <tr class="model-header-row">
@@ -481,48 +481,48 @@
             <td>14.72</td><td>27.57</td>
             <td>20.13</td><td>45.00</td>
             <td>5.92</td><td>12.32</td>
-            <td>26.06</td><td>39.36</td>
-            <td>16.71</td><td>31.06</td>
+            <td>19.04</td><td>25.69</td>
+            <td>14.95</td><td>27.65</td>
           </tr>
           <tr>
             <td>w/ Tools</td>
             <td>19.63</td><td>34.11</td>
             <td>24.62</td><td>49.50</td>
             <td>15.88</td><td>21.80</td>
-            <td>28.19</td><td>44.68</td>
-            <td>22.08</td><td>37.52</td>
+            <td>18.12</td><td>29.36</td>
+            <td>19.56</td><td>33.69</td>
           </tr>
           <tr>
             <td>AWM</td>
             <td>21.14</td><td>36.92</td>
             <td>25.25</td><td>51.00</td>
             <td>16.94</td><td>22.75</td>
-            <td>27.93</td><td>43.62</td>
-            <td>22.82</td><td>38.57</td>
+            <td>19.95</td><td>29.36</td>
+            <td>20.82</td><td>35.01</td>
           </tr>
           <tr>
             <td>Dynamic CheatSheet</td>
             <td>20.44</td><td>33.64</td>
             <td>25.50</td><td>52.00</td>
             <td>14.57</td><td>22.27</td>
-            <td>26.86</td><td>43.62</td>
-            <td>21.84</td><td>37.88</td>
+            <td>18.81</td><td>28.44</td>
+            <td>19.83</td><td>34.09</td>
           </tr>
           <tr>
             <td>Agent-KB</td>
             <td>22.78</td><td>36.92</td>
             <td>24.75</td><td>52.50</td>
             <td>15.17</td><td>20.38</td>
-            <td>29.26</td><td>45.74</td>
-            <td>22.99</td><td>38.89</td>
+            <td>19.50</td><td>31.19</td>
+            <td>20.55</td><td>35.25</td>
           </tr>
           <tr class="our-method-row">
             <td><strong>XSkill (Ours)</strong></td>
             <td><strong>25.00</strong></td><td><strong>41.12</strong></td>
             <td><strong>30.25</strong></td><td><strong>57.50</strong></td>
             <td><strong>17.30</strong></td><td><strong>23.70</strong></td>
-            <td><strong>32.18</strong></td><td><strong>46.81</strong></td>
-            <td><strong>26.18</strong></td><td><strong>42.28</strong></td>
+            <td><strong>22.32</strong></td><td><strong>33.94</strong></td>
+            <td><strong>23.72</strong></td><td><strong>39.07</strong></td>
           </tr>
         </tbody>
       </table>
@@ -592,7 +592,7 @@
           <p class="analysis-card-desc">
             Transitioning from <em>Experience Only</em> to <em>Skill Only</em> reduces overall error rate from 29.9% (168 errors) to 15.3% (95 errors).
             Syntax errors drop from 114 (20.3%) to 71 (11.4%), tool name errors from 16 (2.85%) to just 2 (0.32%),
-            and runtime errors from 38 (6.8%) to 22 (3.5%).
+            and runtime errors from 38 (6.8%) to 22 (3.5%). These results show that skills provide a strong foundation for reliable tool use, directly addressing the problem of inefficient tool use.
           </p>
           <div class="analysis-figure-wrap">
             <img src="./static/images/figures/error_analysis.png" alt="Error analysis on VisualToolBench" />
@@ -607,6 +607,7 @@
             Experiences substantially shift tool selection toward more targeted strategies.
             On VisualToolBench, code interpreter usage increases from 66.63% to 76.97% with the full pipeline.
             On MMSearch-Plus, image search grows from 15.43% to 23.89% while web search declines — reflecting learned preferences for specialized visual tools.
+            This context-aware adaptation allows <span class="xskill">XSkill</span> to achieve the flexible tool orchestration needed for complex multimodal tasks.
           </p>
           <div class="table-container">
             <table class="table is-bordered is-striped is-hoverable tool-dist-table">
@@ -678,7 +679,7 @@
     <h2 class="title is-3 has-text-centered">Qualitative Example</h2>
     <div class="content has-text-justified" style="margin-bottom: 2rem;">
       <p>
-        We walk through a real reasoning trajectory on <strong>RealX-Bench</strong> to illustrate how
+        We walk through a real reasoning trajectory to illustrate how
         <span class="xskill">XSkill</span> works end-to-end.
         The agent is given a car image and asked: <em>"In what color area is the second 'GOOD' text on the car body located?"</em>
         The correct answer is <strong>Purple</strong>.
@@ -690,7 +691,6 @@
     <!-- Task header: question + image -->
     <div class="traj-task-bar">
       <div class="traj-task-label">
-        <span class="tag is-dark" style="margin-right: 0.4rem;">RealX-Bench</span>
         <span class="traj-q-icon">❓</span>
         <span class="traj-question">Question: In what color area is the second "GOOD" text on the car body located?</span>
       </div>

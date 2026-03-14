@@ -344,6 +344,34 @@ body {
   margin-bottom: 0.6rem;
 }
 
+/* Publication link buttons */
+.btn-arxiv {
+  background-color: #b31b1b;
+  border-color: #8a1414;
+  color: #fff !important;
+}
+.btn-arxiv:hover { background-color: #8a1414; border-color: #8a1414; color: #fff !important; }
+
+.btn-github {
+  background-color: #24292e;
+  border-color: #1a1e22;
+  color: #fff !important;
+}
+.btn-github:hover { background-color: #1a1e22; border-color: #1a1e22; color: #fff !important; }
+
+.btn-hf {
+  background-color: #ff9d00;
+  border-color: #e08800;
+  color: #fff !important;
+}
+.btn-hf:hover { background-color: #e08800; border-color: #e08800; color: #fff !important; }
+
+.hf-icon {
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1;
+}
+
 /* Skill / Experience tags */
 .skill-tag {
   background: #ffedd5;
